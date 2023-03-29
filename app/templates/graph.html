@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/sytle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+    <title>Tuberculosis prediction</title>
+</head>
+
+<body>
+
+    <div id="container">
+
+        <header>
+            <img src="../static/styles/logo.png">
+        </header>
+
+        <form action="/" method="POST", class = "form_layout">
+            <h3 class = "social_header">Características Socias</h3>
+
+            <label for="quantity" class = "number_label">Digite a idade:</label>
+            <input type="number" name="age" class = "number_input" placeholder="Idade em anos" min = 18 max = 99>
+
+            <label for="sex" class = "sex_label">Selecione o sexo:</label>
+            <select name="sex" id="sex" class = "sex_input">
+                <option value=0>Feminino</option>
+                <option value=1>Masculino</option>
+            </select>
+
+            <label for="race" class = "race_label">Selecione a raca:</label>
+            <select name="race" id="race" class = "race_input">
+                <option value=0>Branca</option>
+                <option value=1>Negra</option>
+                <option value=1>Parda</option>
+                <option value=1>Outra</option>
+            </select>
+
+            <label for="esc" class = "esc_label">Informe a escolaridade:</label>
+            <select name="esc" id="esc" class = "esc_input">
+                <option value=0>< 5 anos</option>
+                <option value=1>5 a 9 anos</option>
+                <option value=2>9 a 12 anos</option>
+                <option value=3>>12 anos</option>
+            </select>
+
+            <label for="bf" class = "bf_label">Recebe bolsa família:</label>
+            <select name="bf" id="bf" class = "bf_input">
+                <option value=1>Sim</option>
+                <option value=0>Não</option>
+            </select>
+
+            <label for="jail" class = "jail_label">População carcerária:</label>
+            <select name="jail" id="jail" class = "jail_input">
+                <option value=1>Sim</option>
+                <option value=0>Não</option>
+            </select>
+
+            <label for="hom" class = "hom_label">Vive em situação de rua:</label>
+            <select name="hom" id="hom" class = "hom_input">
+                <option value=1>Sim</option>
+                <option value=0>Não</option>
+            </select>
+
+            <h3 class = "com_header">Comorbidades</h3>
+            <label for="tb" class = "tb_label">Histórico de Tb:</label>
+            <select name="tb" id="tb" class = "tb_input">
+                <option value=1>Sim</option>
+                <option value=0>Não</option>
+            </select>
+
+            <label for="hiv" class = "hiv_label">Portador de HIV:</label>
+            <select name="hiv" id="hiv" class = "hiv_input">
+                <option value=1>Sim</option>
+                <option value=0>Não</option>
+            </select>
+
+            <h3 class = "beha">Comportamento de risco</h3>
+            <label for="drug" class = "drug_label">Usuário de drogas:</label>
+            <select name="drug" id="drug" class = "drug_input">
+                <option value=1>Sim</option>
+                <option value=0>Não</option>
+            </select>
+
+            <label for="diabetes" class = "diabetes_label">Diabetes:</label>
+            <select name="diabetes" id="diabetes" class = "diabetes_input">
+                <option value=1>Sim</option>
+                <option value=0>Não</option>
+            </select>
+
+            <label for="alch" class = "alch_label">Etilista:</label>
+            <select name="alch" id="alch" class = "alch_input">
+                <option value=1>Sim</option>
+                <option value=0>Não</option>
+            </select>
+
+            <label for="tobaco" class = "tobaco_label">Tabagista:</label>
+            <select name="tobaco" id="tobaco" class = "tobaco_input">
+                <option value=1>Sim</option>
+                <option value=0>Não</option>
+            </select>
+
+            <label for="other" class = "other_label">Outra comorbidade:</label>
+            <select name="other" id="other" class = "other_input">
+                <option value=1>Sim</option>
+                <option value=0>Não</option>
+            </select>
+            <div class = "back_button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16"> 
+                    <a href="https://tbprediction.onrender.com/"><path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/> 
+                    <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/></a>
+                </svg>
+            </div>
+        </form>
+
+
+        
+
+
+
+
+        <div class="result_area">
+            <canvas id = "pieChart"></canvas>
+            <script>
+                var ctx = document.getElementById("pieChart").getContext("2d")
+                var pieChart = new Chart(ctx, {
+                    type: "doughnut",
+                    data: {
+                        labels: {{ labels | safe}},
+                        datasets: [
+                            {
+                                label: "Data values",
+                                data: {{ values | safe}},
+                                backgroundColor: ["#F40B0B","#0F0BF4"]
+
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: false
+                    }
+                });
+
+            </script>
+            
+
+        </div>
+
+        <footer>
+            <div class = "footer_logo">
+                <svg xmlns = "http://www.w3.org/2000/svg" class = "footer_img" viewBox ="0 0 16 16">
+                    <a href="https://github.com/rodriguesmsb/TBPrediction">
+                        <path d = "M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 
+                        7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 
+                        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 
+                        0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 
+                        3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+                    </path>
+                    </a>
+                </svg>     
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
