@@ -40,16 +40,15 @@ header{
     margin-left: 50px;
 }
 
-.number_label{
+.imc_label{
     grid-column: 3/ span 2;
     grid-row: 3/ span 1;
     margin-left: 50px;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
-
 }
 
-.number_input{
+.imc_input{
     grid-column: 3/ span 2;
     grid-row: 3/ span 1;
     margin-left: 50px;
@@ -59,9 +58,35 @@ header{
     border-radius: 8px;
 }
 
-.sel_value{
+.imc_value{
     grid-column: 3/ span 2;
     grid-row: 4/ span 1;
+    margin-left: 50px;
+    font-family: 'Roboto', sans-serif;
+    margin-top: -40px;
+}
+
+.cec_label{
+    grid-column: 3/ span 2;
+    grid-row: 5/ span 1;
+    margin-left: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+.cec_input{
+    grid-column: 3/ span 2;
+    grid-row: 5/ span 1;
+    margin-left: 50px;
+    height: 30px;
+    margin-top: 20px;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.cec_value{
+    grid-column: 3/ span 2;
+    grid-row: 6/ span 1;
     margin-left: 50px;
     font-family: 'Roboto', sans-serif;
     margin-top: -40px;

@@ -25,20 +25,39 @@
             <h1 class = "title_header">XXX Prediction App</h1>
 
             <h2 class = "subtitle_header">Please enter your patient charactetistics</h2>
-
+           <!-- 
             <label for="quantity" class = "number_label">Select pacient age:</label>
-            <input type="number" name="age" id = "number_input" class = "number_input" placeholder="Age in years" min = 18 max = 99>
+            <input type="number" name="age" id = "number_input" class = "number_input" placeholder="Age in years" min = 18 max = 99> -->
 
-            <!-- <label for="quantity" class = "number_label">Select pacient age:</label>
-            <input type="range" name="age" id = "age_input" class = "number_input" min = "18" max = "100" step="0.1">
-            <p class = "sel_value">Selected value: <output id="value"></output></p>
+            <label for="imc" class = "imc_label">Select your pacient IMC:</label>
+            <input type="range" name="imc" id = "imc_range" class = "imc_input" min = "0" max = "100" step="0.1">
+            <p class = "imc_value">Selected value: <output id="imc_value"></output></p>
             <script>
-                const value = document.querySelector("#value")
-                const input = document.querySelector("#age_input")
-                value.textContent = input.value
-                input.addEventListener("input", (event) => {
-                value.textContent = event.target.value})
-            </script> -->
+                var slider = document.getElementById("imc_range");
+                var output = document.getElementById("imc_value");
+                output.innerHTML = slider.value;
+                
+                slider.oninput = function() {
+                  output.innerHTML = this.value;
+                }
+                </script>
+
+
+            <label for="cec" class = "cec_label">Select your pacient CEC:</label>
+            <input type="range" name="cec" id = "cec_range" class = "cec_input" min = "-1" max = "1" step="0.1">
+            <p class = "cec_value">Selected value: <output id="cec_value"></output></p>
+            <script>
+                var slider_cec = document.getElementById("cec_range");
+                var output_cec = document.getElementById("cec_value");
+                output_cec.innerHTML = slider_cec.value;
+                
+                slider_cec.oninput = function() {
+                  output_cec.innerHTML = this.value;
+                }
+                </script>
+          
+          
+
             
 
          
