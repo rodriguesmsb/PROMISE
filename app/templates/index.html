@@ -22,14 +22,12 @@
 
         <form action="/" method="POST", class = "form_layout">
             
-            <h1 class = "title_header">XXX Prediction App</h1>
+            <h1 class = "title_header">Predictors related to outcomes after myocardial surgey App</h1>
 
             <h2 class = "subtitle_header">Please enter your patient charactetistics</h2>
-           <!-- 
-            <label for="quantity" class = "number_label">Select pacient age:</label>
-            <input type="number" name="age" id = "number_input" class = "number_input" placeholder="Age in years" min = 18 max = 99> -->
+        
 
-            <label for="imc" class = "imc_label">Select your pacient IMC:</label>
+            <label for="imc" class = "imc_label">Select your pacient BMI (Kg/m):</label>
             <input type="range" name="imc" id = "imc_range" class = "imc_input" min = "0" max = "100" step="0.1">
             <p class = "imc_value">Selected value: <output id="imc_value"></output></p>
             <script>
@@ -42,9 +40,9 @@
                 }
                 </script>
 
-
-            <label for="cec" class = "cec_label">Select your pacient CEC:</label>
-            <input type="range" name="cec" id = "cec_range" class = "cec_input" min = "-1" max = "1" step="0.1">
+            
+            <label for="cec" class = "cec_label">Time in extracorporeal circulation (minutes):</label>
+            <input type="range" name="cec" id = "cec_range" class = "cec_input" min = "0" max = "480" step="1">
             <p class = "cec_value">Selected value: <output id="cec_value"></output></p>
             <script>
                 var slider_cec = document.getElementById("cec_range");
@@ -54,24 +52,47 @@
                 slider_cec.oninput = function() {
                   output_cec.innerHTML = this.value;
                 }
-                </script>
+            </script>
+
+            <label for="mv" class = "mv_label">Time in mechanical ventilation (hours):</label>
+            <input type="range" name="mv" id = "mv_range" class = "mv_input" min = "0" max = "48" step="0.1">
+            <p class = "mv_value">Selected value: <output id="mv_value"></output></p>
+            <script>
+                var slider_mv = document.getElementById("mv_range");
+                var output_mv = document.getElementById("mv_value");
+                output_mv.innerHTML = slider_mv.value;
+    
+                slider_mv.oninput = function() {
+                    output_mv.innerHTML = this.value;
+                }
+            </script>
+
+            <label for="ec" class = "ec_label">Ejection fraction in echocardiogram (%):</label>
+            <input type="range" name="ec" id = "ec_range" class = "ec_input" min = "0" max = "100" step="1">
+            <p class = "ec_value">Selected value: <output id="ec_value"></output></p>
+            <script>
+                var slider_ec = document.getElementById("ec_range");
+                var output_ec = document.getElementById("ec_value");
+                output_ec.innerHTML = slider_ec.value;
+
+                slider_ec.oninput = function() {
+                    output_ec.innerHTML = this.value;
+                }
+            </script>
+
+               
+            <label for="creatinine" class = "creatinine_label">Post-operative creatinine (mg/dL):</label>
+            <input type="number" name="creatinine" id = "creatinine_input" class = "creatinine_input" placeholder="Type your value" min = 0.4 max = 6.0 step="0.01">
+
+            <label for="troponin" class = "troponin_label">Highest troponin in 24 hours (ng/mL):</label>
+            <input type="number" name="troponin" id = "troponin_input" class = "troponin_input" placeholder="Type your value" min = 0 max = 15000 step="0.01">
+
+            <label for="lactate" class = "lactate_label">Highest lactate in 24 hours (mmol/L) :</label>
+            <input type="number" name="lactate" id = "lactateinput" class = "lactate_input" placeholder="Type your value" min = 0 max = 10 step="0.01">
           
-          
-
-            
-
-         
 
 
-
-            <!-- <label for="hom" class = "hom_label">Vive em situação de rua:</label>
-            <select name="hom" id="hom" class = "hom_input">
-                <option value=1>Sim</option>
-                <option value=0>Não</option>
-            </select>
-
-
-            <input class= "submit_button" type = "submit" value = "Submit"> -->
+            <input class= "submit_button" type = "submit" value = "Submit">
                 
         
 

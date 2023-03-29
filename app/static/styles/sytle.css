@@ -2,8 +2,7 @@
 #container{
     display: grid;
     grid-template-columns: auto 1fr auto;
-    gap: 24px;
-    height:97vh;
+    height: 95vh;
 }
 
 body{
@@ -11,12 +10,11 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
-
 header{
     background-color: whitesmoke;
     grid-row: 1/span 1;
     grid-column: 1/span 12;
-    height: 50px;
+    height: 40px;
 }
 
 .form_layout{
@@ -29,9 +27,9 @@ header{
 }
 
 .title_header{
-    grid-column: 3/ span 2;
+    grid-column: 2/ span 4;
     grid-row: 1/ span 1;
-    margin-left: 50px;
+    margin-left: 250px;
 }
 
 .subtitle_header{
@@ -67,6 +65,7 @@ header{
 }
 
 .cec_label{
+    margin-top: -90px;
     grid-column: 3/ span 2;
     grid-row: 5/ span 1;
     margin-left: 50px;
@@ -75,19 +74,150 @@ header{
 }
 
 .cec_input{
+    margin-top: -70px;
     grid-column: 3/ span 2;
     grid-row: 5/ span 1;
     margin-left: 50px;
     height: 30px;
-    margin-top: 20px;
     border: 2px solid black;
     border-radius: 8px;
 }
 
 .cec_value{
+    margin-top: -130px;
     grid-column: 3/ span 2;
     grid-row: 6/ span 1;
     margin-left: 50px;
     font-family: 'Roboto', sans-serif;
-    margin-top: -40px;
 }
+
+
+.mv_label{
+    margin-top: -90px;
+    grid-column: 3/ span 2;
+    grid-row: 6/ span 1;
+    margin-left: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+.mv_input{
+    margin-top: -70px;
+    grid-column: 3/ span 2;
+    grid-row: 6/ span 1;
+    margin-left: 50px;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.mv_value{
+    margin-top: -130px;
+    grid-column: 3/ span 2;
+    grid-row: 7/ span 1;
+    margin-left: 50px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.ec_label{
+    margin-top: -90px;
+    grid-column: 3/ span 2;
+    grid-row: 7/ span 1;
+    margin-left: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+.ec_input{
+    margin-top: -70px;
+    grid-column: 3/ span 2;
+    grid-row: 7/ span 1;
+    margin-left: 50px;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.ec_value{
+    margin-top: -130px;
+    grid-column: 3/ span 2;
+    grid-row: 8/ span 1;
+    margin-left: 50px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.creatinine_label{
+    margin-top: -90px;
+    grid-column: 3/ span 2;
+    grid-row: 8/ span 1;
+    margin-left: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+.creatinine_input{
+    margin-top: -70px;
+    grid-column: 3/ span 2;
+    grid-row: 8/ span 1;
+    margin-left: 50px;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.troponin_label{
+    margin-top: -90px;
+    grid-column: 3/ span 2;
+    grid-row: 9/ span 1;
+    margin-left: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+.troponin_input{
+    margin-top: -70px;
+    grid-column: 3/ span 2;
+    grid-row: 9/ span 1;
+    margin-left: 50px;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.lactate_label{
+    margin-top: -90px;
+    grid-column: 3/ span 2;
+    grid-row: 10/ span 1;
+    margin-left: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+.lactate_input{
+    margin-top: -70px;
+    grid-column: 3/ span 2;
+    grid-row: 10/ span 1;
+    margin-left: 50px;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.submit_button{
+    margin-top: -70px;
+    grid-column: 3/ span 2;
+    grid-row: 11/ span 1;
+    background-color:  #e1eedd;
+    height: 30px;
+    width: 100px;
+    border: 2px solid black;
+    border-radius: 8px;
+    margin-left: 300px;
+}
+
+.submit_button:hover{
+    background-color:#fefbe9;
+    color: black;
+}
+
