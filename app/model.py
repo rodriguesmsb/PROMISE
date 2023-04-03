@@ -1,5 +1,5 @@
 import pandas as pd
-import lightgbm as lgb
+
 
 
 def convert_education(education):
@@ -21,12 +21,12 @@ def create_feature(data):
 
     return data
 
-def prediction_prob(data):
+# def prediction_prob(data):
 
-    model = lgb.Booster(model_file = 'app/binary.txt')
-    #model = xgb.XGBClassifier()
-    #model.load_model("app/xgb.json")
+#     model = lgb.Booster(model_file = 'app/binary.txt')
+#     #model = xgb.XGBClassifier()
+#     #model.load_model("app/xgb.json")
 
-    return(model.predict(data))
+#     return(model.predict(data))
 
 
