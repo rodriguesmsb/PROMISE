@@ -1,0 +1,60 @@
+/**********************************************************************************************/
+#container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    height: 95vh;
+}
+
+body{
+    background-color: whitesmoke;
+    font-family: 'Roboto', sans-serif;
+}
+
+header{
+    background-color: whitesmoke;
+    grid-row: 1/span 1;
+    grid-column: 1/span 12;
+    height: 40px;
+}
+
+.form_layout{
+    display: flex;
+    gap: 10px;
+}
+
+.title_header{
+    grid-column: 1/ span 4;
+    grid-row: 1/ span 1;
+    margin-left: 250px;
+}
+
+.result_area{
+    grid-column: 4 /span 2;
+    grid-row: 2 /span 1;
+}
+
+#pieChart{
+    margin-top: 100px;
+    margin-left: 80px;
+}
+
+canvas#pieChart{
+    height: 600px;
+    width: 500px;
+}
+
+
+.back_button{
+    margin-top: 100px;
+    background-color:  #e1eedd;
+    margin-left: 290px;
+    height: 30px;
+    width: 100px;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.submit_button:hover{
+    background-color:#fefbe9;
+    color: black;
+}

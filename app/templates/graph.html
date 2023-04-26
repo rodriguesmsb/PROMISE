@@ -4,17 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/styles/sytle.css">
+    <link rel="stylesheet" href="../static/styles/graph.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
-    <title>Tuberculosis prediction</title>
+    <title>COPS</title>
 </head>
 
 <body>
 
-   
+    <div id="container">
+
+        <header>
+        </header>
+
+        <h1 class = "title_header">The Covid Prognostic Score</h1>
+
+    
+
+        
+
+
         <div class="result_area">
             <canvas id = "pieChart"></canvas>
             <script>
@@ -27,7 +38,7 @@
                             {
                                 label: "Data values",
                                 data: {{ values | safe}},
-                                backgroundColor: ["#F40B0B","#0F0BF4"]
+                                backgroundColor: ["#2ACD25", "#F40B0B"]
 
                             }
                         ]
@@ -38,10 +49,19 @@
                 });
 
             </script>
+            <form action="/" method="POST", class = "form_layout">
+                <input class = "back_button" type="button" value="Go back!" onclick="history.back()">
+            </form>
             
-
         </div>
 
+       
+
+        <footer>
+            
+        </footer>
+
+    </div>
 
 </body>
 
