@@ -16,46 +16,31 @@ def make_pred():
     if request.method == "POST":
         #foo
 
-        # result = request.form.to_dict(flat = False) #convert form to a dict
+        result = request.form.to_dict(flat = False) #convert form to a dict
 
-        # #convert dict to a data frame
-        # result = pd.DataFrame.from_dict(result)
-        # for col in result.columns:
-        #     result[col] = result[col].astype(int)
+        #convert dict to a data frame
+        result = pd.DataFrame.from_dict(result)
+        for col in result.columns:
+            result[col] = result[col].astype(float)
+        print(result)
         
-        # result.rename(columns = {"tb": "prior_tb", "drug":"ilicit_drug", "other":"other_dishx",
-        #                          "alch":"alcohol", "tobaco":"tobacco",
-        #                          "race": "race", "sex": "sex", "esc":"education",
-        #                          "age": "age", "bf":"cash_transfer",
-        #                          "jail": "liberty_dep", "hom": "exp_homelessness"}, inplace = True)
+        result.rename(columns = {"imc": "imc", "cec":"tempo_cec_min", "mv":"tempo_vm_horas", 
+                                 "ec": "eco_feve", "creatinine":"cr_pos_op",
+                                 "troponin":"pico_tropo", "lactate":"pico_lactato_24h" }, inplace = True)
+        result = result[['imc', 'tempo_cec_min', 'cr_pos_op', 'tempo_vm_horas', 
+                         'pico_tropo', 'pico_lactato_24h', 'eco_feve']]
+        print(result)
 
 
-        # ##add new features
-        # result = app_functions.create_feature(result)
-    
-        # #remove other dishx
-        # result.drop(["other_dishx"], axis = 1, inplace = True)
 
-        # #reorder columns
-        # result = result[['age', 'race', 'sex', 'education', 'prior_tb', 'hiv', 'diabetes',
-        #                  'ilicit_drug', 'alcohol', 'tobacco', 'cash_transfer', 'liberty_dep',
-        #                  'exp_homelessness', 'n_of_morb']]
+
+        prob = app_functions.prediction_prob(result)[0][0]
+        labels = ["Non Death", "Death"]
+        values = [prob,1-prob]
 
         
 
-
-        # prob = app_functions.prediction_prob(result)[0]
-
-        
-        # data = [
-        #     ("Desfavorável", prob),
-        #     ("Favorável", 1 - prob)
-        # ]
-
-        # #split data into two list
-        # labels = [row[0] for row in data]
-        # values = [row[1] for row in data]
       
-        return render_template("graph.html")#, labels = labels, values = values)
+        return render_template("graph.html", labels = labels, values = values)
 
     return render_template("index.html")
