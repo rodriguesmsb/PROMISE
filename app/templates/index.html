@@ -28,7 +28,7 @@
         
 
             <label for="imc" class = "imc_label">Select your pacient BMI (Kg/m):</label>
-            <input type="range" name="imc" id = "imc_range" class = "imc_input" min = "0" max = "100" step="0.1" value = "0">
+            <input type="range" name="imc" id = "imc_range" class = "imc_input" min = "0" max = "100" step="1" value = "0">
             <p class = "imc_value">Selected value: <output id="imc_value"></output></p>
             <script>
                 var slider = document.getElementById("imc_range");
@@ -55,7 +55,7 @@
             </script>
 
             <label for="mv" class = "mv_label">Time in mechanical ventilation (hours):</label>
-            <input type="range" name="mv" id = "mv_range" class = "mv_input" min = "0" max = "48" step="0.1" value = "0">
+            <input type="range" name="mv" id = "mv_range" class = "mv_input" min = "0" max = "48" step="1" value = "0">
             <p class = "mv_value">Selected value: <output id="mv_value"></output></p>
             <script>
                 var slider_mv = document.getElementById("mv_range");
@@ -82,7 +82,7 @@
 
                
             <label for="creatinine" class = "creatinine_label">Post-operative creatinine (mg/dL):</label>
-            <input type="number" name="creatinine" id = "creatinine_input" class = "creatinine_input" placeholder="Type your value" min = 0.4 max = 6.0 step=0.01 value = 0.4>
+            <input type="number" name="creatinine" id = "creatinine_input" class = "creatinine_input" placeholder="Type your value" min = 0.4 max = 6.0 step="0.01" value = "0.4">
 
             <label for="troponin" class = "troponin_label">Highest troponin in 24 hours (ng/mL):</label>
             <input type="number" name="troponin" id = "troponin_input" class = "troponin_input" placeholder="Type your value" min = 0 max = 15000 step="0.01" value = "0">
