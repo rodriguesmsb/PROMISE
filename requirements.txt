@@ -13,6 +13,6 @@ pytz
 scipy
 six
 threadpoolctl
-Werkzeug
+Werkzeug==2.2.2
 zipp
 scikit-learn==1.2.1
