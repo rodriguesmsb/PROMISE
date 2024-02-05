@@ -40,11 +40,15 @@ def make_pred():
         dict_std = {"idade":14.642141, "imc":1261.989164, "cr_pre_op":51.290603,
                      "tempo_vm_horas":2718.449842, "pico_tropo":2988.646148,
                      "pico_lactato_24h":132.060516, "eco_feve":4104.512829}
+
+        
    
 
         for col in result.columns:
             result[col] = (result[col] - dict_mean[col])/dict_std[col]
         print(result)
+
+        result["tempo_vm_horas"] = 42
 
        
 
