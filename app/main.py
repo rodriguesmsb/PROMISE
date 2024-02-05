@@ -26,10 +26,10 @@ def make_pred():
        
 
         result.rename(columns = {"age":"idade", "imc": "imc", "creatinine":"cr_pre_op",
-                                 "mv":"tempo_vm_horas", "troponin":"pico_tropo", 
-                                 "lactate":"pico_lactato_24h",  "ec": "eco_feve"}, inplace = True)
+                                 "troponin":"pico_tropo", "lactate":"pico_lactato_24h",  
+                                 "ec": "eco_feve"}, inplace = True)
 
-        features_names = ['idade', 'imc', 'cr_pre_op', 'tempo_vm_horas', 'pico_tropo', 'pico_lactato_24h', 'eco_feve']
+        features_names = ['idade', 'imc', 'cr_pre_op', 'pico_tropo', 'pico_lactato_24h', 'eco_feve']
 
         #mean values
         dict_mean = {"idade":54.301075, "imc":92.402650, "cr_pre_op":2.623152,
@@ -42,20 +42,24 @@ def make_pred():
                      "pico_lactato_24h":132.060516, "eco_feve":4104.512829}
 
         
+       
    
 
         for col in result.columns:
             result[col] = (result[col] - dict_mean[col])/dict_std[col]
-        print(result)
 
-        result["tempo_vm_horas"] = 42
+        #create a series hourly
+        tempo_vm_horas = pd.Series(range(1,72))
+    
+
+        
 
        
 
 
-        prob = app_functions.prediction_prob(result[features_names])[0][0]
-        labels = ["Non Death", "Death"]
-        values = [prob,1-prob]
+        #prob = app_functions.prediction_prob(result[features_names])[0][0]
+        #labels = ["Non Death", "Death"]
+        #values = [prob,1-prob]
 
         
 
