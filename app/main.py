@@ -58,8 +58,8 @@ def make_pred():
 
 
         #prob = app_functions.prediction_prob(result[features_names])[0][0]
-        #labels = ["Non Death", "Death"]
-        #values = [prob,1-prob]
+        labels = [1,2,3,4,5,6,7]
+        values = [65, 59, 80, 81, 56, 55, 40]
 
         
 

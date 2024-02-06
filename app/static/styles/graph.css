@@ -33,14 +33,14 @@ header{
     grid-row: 2 /span 1;
 }
 
-#pieChart{
+#lineChart{
     margin-top: 100px;
     margin-left: 80px;
 }
 
-canvas#pieChart{
-    height: 600px;
-    width: 500px;
+canvas#lineChart{
+    height: 800px;
+    width: 700px;
 }
 
 
