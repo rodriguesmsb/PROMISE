@@ -4,6 +4,7 @@ from flask import render_template
 from flask import jsonify
 import app.model as app_functions
 import pandas as pd
+import numpy as np
 
 
 
@@ -49,8 +50,16 @@ def make_pred():
             result[col] = (result[col] - dict_mean[col])/dict_std[col]
 
         #create a series hourly
-        tempo_vm_horas = pd.Series(range(1,72))
+        result = pd.DataFrame.from_dict({"idade": result["idade"].repeat(72).tolist(),
+                                         "imc": result["imc"].repeat(72).tolist(),
+                                         "cr_pre_op": result["cr_pre_op"].repeat(72).tolist(),
+                                         "pico_tropo": result["pico_tropo"].repeat(72).tolist(),
+                                         "pico_lactato_24h": result["pico_lactato_24h"].repeat(72).tolist(),
+                                         "eco_feve": result["eco_feve"].repeat(72).tolist(),
+                                         "tempo_vm_horas": pd.Series(range(1,73))})
+        print(result)
     
+
 
         
 
