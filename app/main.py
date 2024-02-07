@@ -30,7 +30,7 @@ def make_pred():
                                  "troponin":"pico_tropo", "lactate":"pico_lactato_24h",  
                                  "ec": "eco_feve"}, inplace = True)
 
-        features_names = ['idade', 'imc', 'cr_pre_op', 'pico_tropo', 'pico_lactato_24h', 'eco_feve']
+        features_names = ['idade', 'imc', 'cr_pre_op', "tempo_vm_horas", 'pico_tropo', 'pico_lactato_24h', 'eco_feve']
 
         #mean values
         dict_mean = {"idade":54.301075, "imc":92.402650, "cr_pre_op":2.623152,
@@ -56,8 +56,8 @@ def make_pred():
                                          "pico_tropo": result["pico_tropo"].repeat(72).tolist(),
                                          "pico_lactato_24h": result["pico_lactato_24h"].repeat(72).tolist(),
                                          "eco_feve": result["eco_feve"].repeat(72).tolist(),
-                                         "tempo_vm_horas": pd.Series(range(1,73))})
-        print(result)
+                                         "tempo_vm_horas": (pd.Series(range(1,73)) - dict_mean["tempo_vm_horas"])/dict_std["tempo_vm_horas"]})
+        
     
 
 
@@ -66,9 +66,11 @@ def make_pred():
        
 
 
-        #prob = app_functions.prediction_prob(result[features_names])[0][0]
-        labels = [1,2,3,4,5,6,7]
-        values = [65, 59, 80, 81, 56, 55, 40]
+        prob = app_functions.prediction_prob(result[features_names])
+        
+
+        labels = np.arange(0,72).tolist()
+        values = [prob[i][1] for i in np.arange(0,72)]
 
         
 
