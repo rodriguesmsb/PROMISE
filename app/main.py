@@ -58,12 +58,6 @@ def make_pred():
                                          "eco_feve": result["eco_feve"].repeat(72).tolist(),
                                          "tempo_vm_horas": (pd.Series(range(1,73)) - dict_mean["tempo_vm_horas"])/dict_std["tempo_vm_horas"]})
         
-    
-
-
-        
-
-       
 
 
         prob = app_functions.prediction_prob(result[features_names])
@@ -71,8 +65,6 @@ def make_pred():
 
         labels = np.arange(0,72).tolist()
         values = [prob[i][1] for i in np.arange(0,72)]
-
-        
 
       
         return render_template("graph.html", labels = labels, values = values)
